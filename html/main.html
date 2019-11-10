@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2019TravelHack</title>
+
+  <link href="../css/bootstrap.css" rel="stylesheet">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <img class="logo" src="../img/logoSmall.png">
+  </header>
+  <div id="page-container">
+    <div id="content-wrap">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12">
+            <div>
+              <p>Total Budget: £ 20,000</p>
+              <button>Shuffle</button>
+
+            </div>
+            <!-- <div style="text-align: left;"></div> -->
+            <main class="allElements">
+
+              <div class="element">
+                <button class="tablink" onclick="openCity('London', this)" id="defaultOpen">
+              <img class="blob" src="../img/largeBlob.png">
+              <div class="iconAndName">
+                <img class="icon" src="../img/destination.png">
+                <h4 class="elementName">Destination</h4>
+              </div>
+              </button>
+              </div>
+              <div class="element">
+                <button class="tablink" onclick="openCity('London', this)" id="defaultOpen">
+              <img class="blob" src="../img/largeBlob.png">
+              <div class="iconAndName">
+                <img class="icon" src="../img/flight.png">
+                <h4 class="elementName">Flight</h4>
+              </div>
+              </button>
+              </div>
+              <div class="element">
+                <button class="tablink" onclick="openCity('London', this)" id="defaultOpen">
+              <img class="blob" src="../img/largeBlob.png">
+              <div class="iconAndName">
+                <img class="icon" src="../img/accomodation.png">
+                <h4 class="elementName">Accomodation</h4>
+              </div>
+              </button>
+              </div>
+            </main>
+            <div class="info">
+              <div class="box">
+                <h4 class="you">You're destination is...</h4>
+                <h3 class="city">NAME OF CITY HERE IN CAPS</h3>
+                <h5 class="detail">brief information about the city here...</h5>
+              </div>
+              <!--box-->
+              <div class="box">
+                <div class="depart">
+                  <h5 class="departTag">DEPART</h5>
+                  <h5 class="departTime">16:05</h5>
+                </div>
+                <div class="arrive">
+                  <h5 class="arriveTag">ARRIVE</h5>
+                </div>
+              </div>
+              <!--box-->
+              <div class="box">
+              </div>
+              <!--box-->
+            </div>
+            <!--info-->
+          </div>
+          <div class="col-xl-12 col-lg-12 col-md-12">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </main>
+
+
+  <script src="../js/bootstrap.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+
+</html>

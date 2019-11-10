@@ -1,4 +1,7 @@
 
+*{
+  font-family: 'Roboto', sans-serif;
+}
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -259,9 +262,6 @@ legend {
   -webkit-padding-end: 0;
 }
 
-* {
-  box-sizing: border-box;
-}
 
 .s01 {
   min-height: 100vh;
@@ -271,7 +271,7 @@ legend {
       justify-content: center;
   -ms-flex-align: center;
       align-items: center;
-  font-family: 'Poppins', sans-serif;
+  /*font-family: 'Poppins', sans-serif;*/
   /*background: url("../img/main_bg.jpg");*/
   background-size: cover;
   background-position: center center;
@@ -422,29 +422,6 @@ legend {
   }
 }
 
-/**/
-@charset "UTF-8";
-
-
-/* FONTS */
-
-@font-face {
-    font-family: 'bogleregular';
-    src: url('bogle-regular-webfont.woff2') format('woff2'),
-         url('bogle-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'boglebold';
-    src: url('bogle-bold-webfont.woff2') format('woff2'),
-         url('bogle-bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-
 .logo {
     height: 1.5em;
     display: block;
@@ -463,7 +440,7 @@ legend {
 
 .element {
     width: auto;
-    height: 12em;
+    height: 15em;
     margin: 1em;
     position: relative;
 }
@@ -486,7 +463,6 @@ img.icon {
 }
 
 h4.elementName {
-    font-family: 'bogleregular';
     font-size: 1.3em;
     color: #0098FF;
     margin: 0.5em 0;
@@ -536,4 +512,39 @@ h4.elementName {
     padding: 0.5em;
     display: inline-block;
     background-color: aliceblue;
+}
+
+.info {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+}
+.box {
+   width: 30%;
+   background-color: #FFE97D;
+   z-index: 0;
+   padding: 1em;
+   margin: 0em 1em;
+}
+h5 {
+   color: #0098FF;
+}
+h4.you {
+   font-size: 1.3em;
+   color: #0098FF;
+   text-align: center;
+   margin: 0 0 0.5em 0;
+}
+h5.detail {
+   font-size: 1.1em;
+   color: #0098FF;
+   text-align: center;
+   margin: 0 0 0.5em 0;
+}
+h3 {
+   font-size: 1.3em;
+   letter-spacing: 0.15em;
+   color: #0098FF;
+   margin: 0 0 0.5em 0;
+   text-align: center;
 }
