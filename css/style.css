@@ -1,8 +1,39 @@
+*{
+  font-family: 'Roboto', sans-serif;
+}
 
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+}
+
+.centered {
+  margin: auto;
+  width: 1000px;
+  text-align: center;
+  margin-top: 70px;
+}
+
+.centerme {
+  margin: auto;
+  width: 1000px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.flexContainer {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Roboto';
+}
+
+.flexContainer .box {
+  border: solid 1px silver;
+  padding: 20px;
+  /* margin-left: 20px;
+  margin-right: 20px; */
+  width: 250px;
 }
 
 body {
@@ -428,8 +459,8 @@ legend {
 
 /* FONTS */
 
-@font-face {
-    font-family: 'bogleregular';
+/* @font-face {
+    font-family: 'Roboto';
     src: url('bogle-regular-webfont.woff2') format('woff2'),
          url('bogle-regular-webfont.woff') format('woff');
     font-weight: normal;
@@ -442,8 +473,7 @@ legend {
          url('bogle-bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}
-
+} */
 
 .logo {
     height: 1.5em;
@@ -486,7 +516,7 @@ img.icon {
 }
 
 h4.elementName {
-    font-family: 'bogleregular';
+    font-family: 'Roboto';
     font-size: 1.3em;
     color: #0098FF;
     margin: 0.5em 0;

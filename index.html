@@ -10,6 +10,7 @@
   <link href="css/bootstrap.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -23,23 +24,131 @@
       </fieldset>
       <div class="inner-form">
         <div class="input-field first-wrap">
-          <input id="search" type="text" placeholder="What is your budget?" />
+          <input id="budget" type="text" placeholder="What is your budget?" />
         </div>
         <div class="input-field second-wrap">
-          <input id="location" type="text" placeholder="Flight from ..." />
+          <input id="origin" type="text" placeholder="Flight from ..." />
         </div>
         <div class="input-field third-wrap">
-          <div class="btn" onclick="myFunction()"><img src="../img/homepageButton.png" alt="" class="click_btn"></div>
+          <div class="btnMain"><img src="../img/homepageButton.png" alt="" class="click_btn"></div>
         </div>
       </div>
     </form>
   </div>
-  <script src="js/bootstrap.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  <div class="s02" style="display: none;">
+      <fieldset>
+        <legend><img class="logo" src="../img/logo.png" alt=""></legend>
+      </fieldset>
+      <main class="allElements">
+          <button class="tablink">
+            <div class="element">
+              <img class="blob" src="../img/largeBlob.png">
+              <div class="iconAndName">
+                <img class="icon" src="../img/destination.png">
+                <h4 class="elementName">destination</h4>
+              </div>
+            </div>
+          </button>
+          <button class="tablink">
+            <div class="element">
+              <img class="blob" src="../img/largeBlob.png">
+              <div class="iconAndName">
+                <img class="icon" src="../img/flight.png">
+                <h4 class="elementName">Flight</h4>
+              </div>
+            </div>
+          </button>
+          <button class="tablink">
+            <div class="element">
+              <img class="blob" src="../img/largeBlob.png">
+              <div class="iconAndName">
+                <img class="icon" src="../img/accomodation.png">
+                <h4 class="elementName">Accomodation</h4>
+              </div>
+            </div>
+          </button>
+        </div>
+
+      <div class="centered">
+      </div>
+      <div class="centerme" style="display:none">
+        <button type="button" class="btn btn-primary">Shuffle</button>
+      </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script>
-    function myFunction() {
-      location.replace("../html/main.html")
-    }
+
+  function formatNiceDiv(results) {
+
+    const random = Math.min(Math.floor(Math.random() * 5), results.length-1);
+
+    let formatString = `<div class="flexContainer">`;
+    // formatString += filterResults.join('');
+
+    // Box 1
+    formatString += `<div class="box">DESTINATION <br />${results[random].trip.destination}.</div>`;
+
+    // Box 2
+    formatString += `<div class="box">FLIGHT ${results[random].trip.destination}. <br />Price: £${results[random].trip.price.total} </div>`;
+
+    // Box 3
+    formatString += `<div class="box">Funds left for HOTEL £${results[random].remainingBudget}</div>`;
+
+    formatString += '</div>';
+    return formatString;
+  }
+
+  function getResults() {
+      // $(".content").html("Results appear here...");
+      $(".s01").hide();
+      $(".s02").show();
+      $(".centered").html('');
+
+      const budget = $("#budget").val();
+      const origin = $("#origin").val();
+
+      const url = `https://bda39ff4a7.execute-api.us-east-1.amazonaws.com/dev/shuffle?origin=${origin}&budget=${budget}`;
+
+      axios.get(url)
+          .then(function (response) {
+              // handle success
+              console.log(response)
+              const filterResults = response.data.map( data => {
+                return `<p>You could fly to ${data.trip.destination}. You have £${data.remainingBudget} for your hotel.</p>`;
+              });
+              const finalContent = formatNiceDiv(response.data);
+              $(".centered").html(finalContent);
+              $(".centerme").show();
+          })
+          .catch(function (error) {
+              // handle error
+              console.log(error);
+          })
+  }
+
+  $(document).ready(function(){
+
+    $(".btn").click(function(){
+      getResults();
+    });
+
+    $(".logo").click(function(){
+      $(".s01").show();
+      $(".s02").hide();
+      $(".centered").html('');
+    });
+
+    $(".btnMain").click(function(){
+      getResults();
+    });
+  });
+
+    // function myFunction() {
+    //   // location.replace("../html/main.html")
+    // }
   </script>
 </body>
 
